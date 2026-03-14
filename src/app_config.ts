@@ -23,7 +23,7 @@ export const APP_CONFIG = {
   AGENT_JOIN_URL: "https://ai.feishu.cn/wiki/O6Q9wrxxci898Wkj6ndcFnlknJd?from=from_copylink",
 
   // 7. 案例链接（CASE_URL）：默认值="https://www.xxxx.cn/case"，代理替换为专属链接
-  CASE_URL: "https://my.feishu.cn/wiki/LIEvwzn0jipQ4PkF0dkc57I2njh?from=from_copylink",
+  CASE_URL: "https://nanmengai.feishu.cn/wiki/B7MmwXnTTiZStAkdtlUc2UTCnmd",
 
   // 8. 保存到桌面的链接（DESKTOP_SAVE_URL）：默认值="p.xxxx.cn"，代理替换为部署到Vercel的自定义域名
   DESKTOP_SAVE_URL: "p.vivaapi.cn",

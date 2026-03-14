@@ -20,7 +20,7 @@ export const SUPPORT_DETAIL_URL = "https://www.xxxx.cn/support";
 export const AGENT_JOIN_URL = "https://www.xxxx.cn/join";
 
 // 7. 案例链接：代理替换为专属链接
-export const CASE_URL = "https://www.xxxx.cn/case";
+export const CASE_URL = "https://nanmengai.feishu.cn/wiki/B7MmwXnTTiZStAkdtlUc2UTCnmd";
 
 // 8. 保存到桌面的链接：代理替换为部署到Vercel的自定义域名
 export const DESKTOP_SAVE_URL = "p.xxxx.cn";

@@ -813,12 +813,12 @@ ${input.replace("@图片反推", "").trim()}`;
 画面信息：人物（动作、服装、表情）、物体（颜色、材质）、光线类型、场景细节、艺术风格
 音频信息：旁白（原话完整转录）、旁白语气、BGM 风格、环境音、特效音
 时长：估算每镜头持续时间，单位为秒，保留 1 位小数
-内容类型判定：自��识别视频核心类型（可标注 1-2 个）
+内容类型判定：自����识别视频核心类型（可标注 1-2 个）
 视频类目判定：自动识别视频类目
 
 二、输出格式（固定结构，可直接复制，纯文本格式）
 画面风格：[完整提取所有关键信息：主体内容、细节纹理、材质质感、构图方式、光影类型、色彩体系、背景元素、风格标签，适配 AI 生视频提示词使用]
-音频风格：[精准概括视频核心音频风格，适配 AI 生视频提示词使用]
+音频风格：[精准概括视���核心音频风格，适配 AI 生视频提示词使用]
 视频拉片笔记:
 镜号 | 景别 / 角度 | 运动 | 画面内容 | 音频 | 时长 (秒)
 
@@ -4352,7 +4352,7 @@ RoleName必须严格对应用户输入中的角色名。`;
                     <a href={`${tempConfig.baseUrl.replace(/\/$/, '')}/console/token`} target="_blank" className="text-lg font-bold uppercase italic flex items-center gap-2 hover:underline decoration-2 underline-offset-4">
                         API令牌获取地址 <ExternalLink className="w-5 h-5"/>
                     </a>
-                    <a href="https://my.feishu.cn/wiki/EPP6wHZEVi1Wi4kZac5cGWDTnx3?from=from_copylink" target="_blank" className="text-lg font-bold uppercase italic flex items-center gap-2 hover:underline decoration-2 underline-offset-4 text-brand-blue hover:text-blue-700 transition-colors">
+                    <a href="https://nanmengai.feishu.cn/wiki/K0Jtw1rpai1qU7kBRzrcJYzSn2d" target="_blank" className="text-lg font-bold uppercase italic flex items-center gap-2 hover:underline decoration-2 underline-offset-4 text-brand-blue hover:text-blue-700 transition-colors">
                         令牌设置教程-必看 <BookOpen className="w-5 h-5"/>
                     </a>
                 </div>

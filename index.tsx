@@ -10,7 +10,7 @@ import {
   Square, CheckSquare, ExternalLink,
   History, Copy, ClipboardCheck, Trash2,
   Palette, Bookmark, Wand2, GripVertical, Save,
-  Image as ImageIcon, BookOpen, MessageCircleQuestion, Shield, BadgeDollarSign,
+  Image as ImageIcon, BookOpen, MessageCircleQuestion, BadgeDollarSign,
   Paperclip, FileText, Music, Mic, Volume2,
   User, VolumeX, AudioLines, MessageSquare,
   ChevronLeft, ChevronRight, MessageSquarePlus, Zap, Eraser, ArrowUp,
@@ -813,12 +813,12 @@ ${input.replace("@图片反推", "").trim()}`;
 画面信息：人物（动作、服装、表情）、物体（颜色、材质）、光线类型、场景细节、艺术风格
 音频信息：旁白（原话完整转录）、旁白语气、BGM 风格、环境音、特效音
 时长：估算每镜头持续时间，单位为秒，保留 1 位小数
-内容类型判定：���������识别视频核心类型（可标注 1-2 个）
+内容类型判定：�����������识别视频核心类型（可标注 1-2 个）
 视频类目判定：自动识别视频类目
 
 二、输出格式（固定结构，可直接复制，纯文本格式）
 画面风格：[完整提取所有关键信息：主体内容、细节纹理、材质质感、构图方式、光影类型、色彩体系、背景元素、风格标签，适配 AI 生视频提示词使用]
-音频����格��[精���概���视���核心音频风格，适配 AI 生视频提示词使用]
+音频�����格��[精���概���视���核心音频风格，适配 AI 生视频提示词使用]
 视频拉片笔记:
 镜号 | 景别 / 角度 | 运动 | 画面内容 | 音频 | 时长 (秒)
 
@@ -1053,7 +1053,7 @@ ${input.replace("@视频反推", "").trim()}`;
                                 <button
                                    onClick={() => setIsThinking(!isThinking)}
                                    className={`rounded-full p-2 transition-colors ${isThinking ? 'bg-indigo-100 text-indigo-600' : 'text-gray-600 hover:bg-gray-200'}`}
-                                   title={isThinking ? "关闭深度思考" : "��启深度思考"}
+                                   title={isThinking ? "关闭深���思考" : "��启深度思考"}
                                 >
                                    <Brain className="w-5 h-5" />
                                 </button>
@@ -3557,7 +3557,7 @@ RoleName必须严格对应用户输入中的角色名。`;
                                         <span className="font-bold text-brand-red">注意：</span>
                                         <ul className="list-disc pl-4 mt-1 space-y-0.5">
                                             <li>人物图：全身/半身，占比&gt;5%，避免遮挡。</li>
-                                            <li>视频：写实风格，单人，动作清晰，无镜头切换。</li>
+                                            <li>视频：写实风格，单��，动作清晰，无镜头切换。</li>
                                             <li>生成时长限制：人物朝向跟随视频(≤30s)，人物跟随图片(≤10s)。</li>
                                         </ul>
                                     </div>

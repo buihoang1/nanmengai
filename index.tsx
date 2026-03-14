@@ -362,7 +362,7 @@ const STYLES = [
   { zh: "针织", en: "Knitted" }
 ];
 
-const CAMERA_MOVES = ["环绕下摇", "环绕推进", "上升推进", "围绕主体运镜", "固定镜头", "手持镜头", "拉远", "推进", "跟随", "右摇", "上摇", "下摇", "环绕"];
+const CAMERA_MOVES = ["环绕下摇", "环绕推进", "上升推进", "围绕主体运镜", "固定镜头", "手持镜头", "拉远", "推进", "跟���", "右摇", "上摇", "下摇", "环绕"];
 const CAMERA_SPEEDS = ["慢速"];
 const SHOT_TYPES = ["近景", "中景", "远景", "仰视", "俯视", "景深", "正面视角", "侧面视角", "特写", "无人机拍摄"];
 const LIGHTING_STYLES = ["阳光", "灯光", "柔和光", "霓虹光"];
@@ -818,7 +818,7 @@ ${input.replace("@图片反推", "").trim()}`;
 
 二、输出格式（固定结构，可直接复制，纯文本格式）
 画面风格：[完整提取所有关键信息：主体内容、细节纹理、材质质感、构图方式、光影类型、色彩体系、背景元素、风格标签，适配 AI 生视频提示词使用]
-音频风格：[精准概括视���核心音频风格，适配 AI 生视频提示词使用]
+音频风格：[精准概���视���核心音频风格，适配 AI 生视频提示词使用]
 视频拉片笔记:
 镜号 | 景别 / 角度 | 运动 | 画面内容 | 音频 | 时长 (秒)
 
@@ -1312,8 +1312,7 @@ const App = () => {
     { id: 'img-conv', name: '图片格式转换', desc: '支持JPG, PNG, BMP, WEBP等多种格式互转。', url: 'https://www.xunjietupian.com/', icon: 'ImageIcon' },
     { id: 'uu-remote', name: '网易UU远程', desc: '网易出品，免费高清流畅的远程控制软件。', url: 'https://uuyc.163.com', icon: 'Monitor' },
     { id: 'img-url', name: '图片转URL链接', desc: '快速将图片转换为在线URL链接。', url: 'https://lsky.zhongzhuan.chat', icon: 'Link' },
-    { id: 'watermark', name: '图片/PDF去水印', desc: 'Pilio.ai - 专业的图片与PDF在线去水印工具。', url: 'https://pilio.ai/zh', icon: 'Eraser' },
-    { id: 'vpn', name: '科学上网（付费）', desc: '高速稳定的网络加速服务。', url: 'https://caomei888.top/#/register?code=iPB4QjfQ', icon: 'Globe' }
+    { id: 'watermark', name: '图片/PDF去水印', desc: 'Pilio.ai - 专业的图片与PDF在线去水印工具。', url: 'https://pilio.ai/zh', icon: 'Eraser' }
   ]);
   const [draggedResourceIdx, setDraggedResourceIdx] = useState<number | null>(null);
 

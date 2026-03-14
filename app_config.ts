@@ -17,7 +17,7 @@ export const WECHAT_SERVICE = "Nanmengaix";
 export const SUPPORT_DETAIL_URL = "https://nanmengai.feishu.cn/wiki/B7MmwXnTTiZStAkdtlUc2UTCnmd";
 
 // 6. 代理界面立即加入代理计划链接：代理替换为专属链接
-export const AGENT_JOIN_URL = "https://www.xxxx.cn/join";
+export const AGENT_JOIN_URL = "https://www.nanmengai.cn";
 
 // 7. 案例链接：代理替换为专属链接
 export const CASE_URL = "https://nanmengai.feishu.cn/wiki/B7MmwXnTTiZStAkdtlUc2UTCnmd";

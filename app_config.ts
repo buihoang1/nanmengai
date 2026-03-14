@@ -5,7 +5,7 @@
 export const APP_NAME = "南梦AI 助手";
 
 // 2. 基础地址：代理替换为专属域名
-export const BASE_URL = "https://www.vivaapi.cn";
+export const BASE_URL = "https://www.nanmengai.cn";
 
 // 3. 价格倍率：对应“在线充值价格=PRICE_RATIO元/1美元额度”，代理修改此数值调整价格
 export const PRICE_RATIO = 0.7;

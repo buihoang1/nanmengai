@@ -8,7 +8,7 @@ export const APP_CONFIG = {
   APP_NAME: "ViVa AI助手",
 
   // 2. 基础地址（BASE_URL）：默认值="https://www.vivaapi.cn"，代理替换为专属域名
-  BASE_URL: "https://www.vivaapi.cn",
+  BASE_URL: "https://www.nanmengai.cn",
 
   // 3. 价格倍率（PRICE_RATIO）：默认值=0.7，对应“在线充值价格=0.7元/1美元额度”，代理修改此数值调整价格
   PRICE_RATIO: 0.7,

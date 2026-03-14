@@ -28,7 +28,7 @@ declare var process: {
 };
 
 type ModalType = 'settings' | 'links' | 'usage' | 'price' | 'support' | 'edit-prompt' | 'styles' | 'library' | 'save-prompt-confirm' | 'video-remix' | null;
-type MainCategory = 'image' | 'video' | 'proxy' | 'audio' | 'chat' | 'resources';
+type MainCategory = 'image' | 'video' | 'audio' | 'chat' | 'resources';
 
 interface AppConfig {
   baseUrl: string;
@@ -813,7 +813,7 @@ ${input.replace("@图片反推", "").trim()}`;
 画面信息：人物（动作、服装、表情）、物体（颜色、材质）、光线类型、场景细节、艺术风格
 音频信息：旁白（原话完整转录）、旁白语气、BGM 风格、环境音、特效音
 时长：估算每镜头持续时间，单位为秒，保留 1 位小数
-内容类型判定：自动识别视频核心类型（可标注 1-2 个）
+内容类型判定：自��识别视频核心类型（可标注 1-2 个）
 视频类目判定：自动识别视频类目
 
 二、输出格式（固定结构，可直接复制，纯文本格式）
@@ -1323,13 +1323,12 @@ const App = () => {
   const safeEnvKey = (typeof process !== 'undefined' && process.env && process.env.API_KEY) ? process.env.API_KEY : '';
 
   const isVideoMode = mainCategory === 'video';
-  const isProxyMode = mainCategory === 'proxy';
   const isAudioMode = mainCategory === 'audio';
   const isChatMode = mainCategory === 'chat';
   const isResourcesMode = mainCategory === 'resources';
   
-  // Determine if we should show the full-width view (like Chat, Proxy, Resources)
-  const isFullWidthMode = isChatMode || isProxyMode || isResourcesMode;
+  // Determine if we should show the full-width view (like Chat, Resources)
+  const isFullWidthMode = isChatMode || isResourcesMode;
 
   const handleSaveShortcut = () => {
     const appUrl = "https://" + APP_CONFIG.DESKTOP_SAVE_URL;
@@ -1463,7 +1462,7 @@ const App = () => {
 
   // ... (useEffects for models remain same) ...
   useEffect(() => {
-    if (!isVideoMode && !isProxyMode && !isAudioMode && !isChatMode && !isResourcesMode) {
+    if (!isVideoMode && !isAudioMode && !isChatMode && !isResourcesMode) {
       const model = MODELS.find(m => m.id === selectedModel);
       if (model) {
         if (!model.supportedAspectRatios.includes(aspectRatio)) setAspectRatio(model.supportedAspectRatios[0]);
@@ -3285,7 +3284,6 @@ RoleName必须严格对应用户输入中的角色名。`;
                   { id: 'video', icon: Video, label: '视频', action: () => { setMainCategory('video'); resetInputState({ keepImages: true }); }, active: mainCategory === 'video' },
                   { id: 'audio', icon: Mic, label: '语音', action: () => { setMainCategory('audio'); resetInputState(); }, active: mainCategory === 'audio' },
                   { id: 'resources', icon: FolderOpen, label: '资源', action: () => { setMainCategory('resources'); resetInputState(); }, active: mainCategory === 'resources' },
-                  { id: 'proxy', icon: Shield, label: '代理', action: () => { setMainCategory('proxy'); resetInputState(); }, active: mainCategory === 'proxy' },
                   { id: 'case', icon: BookOpen, label: '案例', action: () => { window.open(APP_CONFIG.CASE_URL, '_blank'); }, active: false },
                   { id: 'save', icon: Save, label: '保存', action: handleSaveShortcut, active: false },
               ].map(item => (
@@ -3428,71 +3426,6 @@ RoleName必须严格对应用户输入中的角色名。`;
                              </a>
                          ))}
                     </div>
-                </div>
-            </div>
-        ) : mainCategory === 'proxy' ? (
-            <div className="flex-1 bg-[#F8FAFC] overflow-y-auto p-4 md:p-8 min-h-0">
-                <div className="max-w-5xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 fade-in duration-500">
-                    
-                    {/* Header Hero */}
-                    <div className="bg-brand-blue border-2 border-black p-8 md:p-12 brutalist-shadow text-white relative overflow-hidden group">
-                        <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-black/10 skew-x-[-20deg] translate-x-1/2 group-hover:translate-x-1/3 transition-transform duration-700"></div>
-                        <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-                            <div className="space-y-4">
-                                <div className="inline-flex items-center gap-2 bg-white text-brand-blue border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider">
-                                    <Shield className="w-4 h-4 fill-current" />
-                                    Partner Program
-                                </div>
-                                <h2 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter leading-[0.9]">
-                                    代理合作<br/><span className="text-brand-yellow text-stroke-black">Cooperation</span>
-                                </h2>
-                            </div>
-                            <div className="bg-black/20 p-4 border border-white/30 backdrop-blur-sm max-w-sm">
-                                <p className="text-sm font-medium leading-relaxed">
-                                    开启您的 AI 创业之旅。零门槛，高回报。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Features Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="col-span-1 md:col-span-2 bg-black text-white p-4 border-2 border-black mb-4">
-                            <h3 className="text-xl font-bold uppercase italic tracking-wider flex items-center gap-2">
-                                <Zap className="w-6 h-6 text-brand-yellow fill-current" />
-                                核心优势 / Core Advantages
-                            </h3>
-                        </div>
-                        {[
-                            "提供超低的成本使用价，自用省米，运营赚米",
-                            "部署搭建同本AI大模型API主站一样的聚合API平台",
-                            "部署搭建同本AI助手一样的AI应用平台",
-                            "无需服务器、无需后续管理、只需提供一个域名",
-                            "最快一天部署上线，代理费达标后可全额返还",
-                            "2026弯道超车的机会，望君把握"
-                        ].map((text, i) => (
-                            <div key={i} className="group bg-white border-2 border-black p-5 transition-all duration-300 flex gap-4 items-start hover:-translate-y-1">
-                                <span className="shrink-0 w-8 h-8 flex items-center justify-center bg-brand-yellow border border-black font-black text-lg">
-                                    {i + 1}
-                                </span>
-                                <p className="font-bold text-sm md:text-base text-slate-800 pt-1">{text}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* CTA Section */}
-                    <a href={APP_CONFIG.AGENT_JOIN_URL} target="_blank" className="block group relative">
-                        <div className="relative bg-white border-2 border-black p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover:-translate-y-1 transition-transform cursor-pointer">
-                            <div className="space-y-2">
-                                <h3 className="text-2xl font-black uppercase italic">立即加入代理计划</h3>
-                                <p className="text-slate-600 font-medium">查看详细招募文档，获取更多权益详情</p>
-                            </div>
-                            <div className="w-16 h-16 bg-brand-green border-2 border-black flex items-center justify-center rounded-full group-hover:rotate-45 transition-transform duration-300">
-                                <ExternalLink className="w-8 h-8 text-black" />
-                            </div>
-                        </div>
-                    </a>
-
                 </div>
             </div>
         ) : (
@@ -3805,7 +3738,7 @@ RoleName必须严格对应用户输入中的角色名。`;
           </section>
           )}
 
-          {!isChatMode && !isProxyMode && !isResourcesMode && (
+          {!isChatMode && !isResourcesMode && (
           <section className="space-y-3">
              <SectionLabel 
                 text={isAudioMode ? "语音配置 / Voice Config" : "生成配置 / Generation Config"} 
@@ -4198,7 +4131,7 @@ RoleName必须严格对应用户输入中的角色名。`;
           )}
 
           <div className="space-y-3">
-            {!isChatMode && !isProxyMode && !isResourcesMode && (
+            {!isChatMode && !isResourcesMode && (
               <>
                 <button onClick={() => executeGeneration()} className="w-full py-3 bg-brand-red text-white text-xl font-normal border border-black brutalist-shadow hover:translate-y-1.5 hover:shadow-none transition-all uppercase tracking-tighter">
                   开始创作/Start Creating
@@ -4268,7 +4201,7 @@ RoleName必须严格对应用户输入中的角色名。`;
                         <button 
                             onClick={() => setShowAnnouncement(false)} 
                             className="absolute right-2 z-10 text-[#DC2626] hover:text-[#991B1B] bg-[#FEF2F2] pl-2"
-                            title="关闭公告"
+                            title="关��公告"
                         >
                             <X className="w-4 h-4" />
                         </button>
@@ -4480,8 +4413,6 @@ RoleName必须严格对应用户输入中的角色名。`;
           </div>
         </div>
       )}
-      
-      {/* ... remaining modals kept identical ... */}
       {activeModal === 'links' && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
           <div className="w-[500px] bg-white border-2 border-black brutalist-shadow animate-in zoom-in-95 relative">
@@ -4504,24 +4435,6 @@ RoleName必须严格对应用户输入中的角色名。`;
                       </div>
                       <p className="text-[10px] font-normal text-slate-400 uppercase italic">Click text to copy / Long press</p>
                   </div>
-               </div>
-
-               <div className="w-full h-0.5 bg-slate-100 border-t border-dashed border-slate-300"></div>
-
-               <div className="space-y-4 text-center">
-                  <div className="space-y-1">
-                      <h4 className="font-bold text-lg uppercase italic flex items-center justify-center gap-2">
-                          <span className="w-2 h-2 bg-brand-green rounded-full border border-black"></span>
-                          招募优质API代理
-                      </h4>
-                      <p className="text-xs font-bold text-slate-500 italic px-4 leading-relaxed">
-                          名额有限，欢迎想通过AI创业的伙伴加入。
-                      </p>
-                  </div>
-
-                  <a href={APP_CONFIG.SUPPORT_DETAIL_URL} target="_blank" className="flex items-center justify-center w-full py-4 bg-brand-red text-white border-2 border-transparent outline outline-2 outline-black font-bold text-lg uppercase hover:bg-black hover:translate-y-1 hover:shadow-none brutalist-shadow transition-all italic gap-2 group">
-                      查看更多详情 <ExternalLink className="w-5 h-5 group-hover:scale-110 transition-transform"/>
-                  </a>
                </div>
             </div>
           </div>

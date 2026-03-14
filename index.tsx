@@ -10,7 +10,7 @@ import {
   Square, CheckSquare, ExternalLink,
   History, Copy, ClipboardCheck, Trash2,
   Palette, Bookmark, Wand2, GripVertical, Save,
-  Image as ImageIcon, BookOpen, MessageCircleQuestion, Shield, BadgeDollarSign,
+  Image as ImageIcon, BookOpen, MessageCircleQuestion, BadgeDollarSign,
   Paperclip, FileText, Music, Mic, Volume2,
   User, VolumeX, AudioLines, MessageSquare,
   ChevronLeft, ChevronRight, MessageSquarePlus, Zap, Eraser, ArrowUp,
@@ -28,7 +28,7 @@ declare var process: {
 };
 
 type ModalType = 'settings' | 'links' | 'usage' | 'price' | 'support' | 'edit-prompt' | 'styles' | 'library' | 'save-prompt-confirm' | 'video-remix' | null;
-type MainCategory = 'image' | 'video' | 'proxy' | 'audio' | 'chat' | 'resources';
+type MainCategory = 'image' | 'video' | 'audio' | 'chat' | 'resources';
 
 interface AppConfig {
   baseUrl: string;
@@ -362,7 +362,7 @@ const STYLES = [
   { zh: "针织", en: "Knitted" }
 ];
 
-const CAMERA_MOVES = ["环绕下摇", "环绕推进", "上升推进", "围绕主体运镜", "固定镜头", "手持镜头", "拉远", "推进", "跟随", "右摇", "上摇", "下摇", "环绕"];
+const CAMERA_MOVES = ["环绕下摇", "环绕推进", "上升推进", "围绕主体运镜", "固定镜头", "手持镜头", "拉远", "推进", "跟���", "右摇", "上摇", "下摇", "环绕"];
 const CAMERA_SPEEDS = ["慢速"];
 const SHOT_TYPES = ["近景", "中景", "远景", "仰视", "俯视", "景深", "正面视角", "侧面视角", "特写", "无人机拍摄"];
 const LIGHTING_STYLES = ["阳光", "灯光", "柔和光", "霓虹光"];
@@ -483,7 +483,7 @@ const findImageUrlInObject = (obj: any): string | null => {
 };
 
 // --- IndexedDB ---
-const DB_NAME = 'viva_ai_db';
+const DB_NAME = 'nanmeng_ai_db';
 const STORE_NAME = 'assets';
 const DB_VERSION = 4;
 
@@ -813,12 +813,12 @@ ${input.replace("@图片反推", "").trim()}`;
 画面信息：人物（动作、服装、表情）、物体（颜色、材质）、光线类型、场景细节、艺术风格
 音频信息：旁白（原话完整转录）、旁白语气、BGM 风格、环境音、特效音
 时长：估算每镜头持续时间，单位为秒，保留 1 位小数
-内容类型判定：自动识别视频核心类型（可标注 1-2 个）
+内容类型判定：�����������识别视频核心类型（可标注 1-2 个）
 视频类目判定：自动识别视频类目
 
 二、输出格式（固定结构，可直接复制，纯文本格式）
 画面风格：[完整提取所有关键信息：主体内容、细节纹理、材质质感、构图方式、光影类型、色彩体系、背景元素、风格标签，适配 AI 生视频提示词使用]
-音频风格：[精准概括视频核心音频风格，适配 AI 生视频提示词使用]
+音频�������格��[精���概���视���核心音频风格，适配 AI 生视频提示词使用]
 视频拉片笔记:
 镜号 | 景别 / 角度 | 运动 | 画面内容 | 音频 | 时长 (秒)
 
@@ -1053,7 +1053,7 @@ ${input.replace("@视频反推", "").trim()}`;
                                 <button
                                    onClick={() => setIsThinking(!isThinking)}
                                    className={`rounded-full p-2 transition-colors ${isThinking ? 'bg-indigo-100 text-indigo-600' : 'text-gray-600 hover:bg-gray-200'}`}
-                                   title={isThinking ? "关闭深度思考" : "开启深度思考"}
+                                   title={isThinking ? "关闭深���思考" : "��启深度思考"}
                                 >
                                    <Brain className="w-5 h-5" />
                                 </button>
@@ -1312,8 +1312,7 @@ const App = () => {
     { id: 'img-conv', name: '图片格式转换', desc: '支持JPG, PNG, BMP, WEBP等多种格式互转。', url: 'https://www.xunjietupian.com/', icon: 'ImageIcon' },
     { id: 'uu-remote', name: '网易UU远程', desc: '网易出品，免费高清流畅的远程控制软件。', url: 'https://uuyc.163.com', icon: 'Monitor' },
     { id: 'img-url', name: '图片转URL链接', desc: '快速将图片转换为在线URL链接。', url: 'https://lsky.zhongzhuan.chat', icon: 'Link' },
-    { id: 'watermark', name: '图片/PDF去水印', desc: 'Pilio.ai - 专业的图片与PDF在线去水印工具。', url: 'https://pilio.ai/zh', icon: 'Eraser' },
-    { id: 'vpn', name: '科学上网（付费）', desc: '高速稳定的网络加速服务。', url: 'https://caomei888.top/#/register?code=iPB4QjfQ', icon: 'Globe' }
+    { id: 'watermark', name: '图片/PDF去水印', desc: 'Pilio.ai - 专业的图片与PDF在线去水印工具。', url: 'https://pilio.ai/zh', icon: 'Eraser' }
   ]);
   const [draggedResourceIdx, setDraggedResourceIdx] = useState<number | null>(null);
 
@@ -1323,13 +1322,12 @@ const App = () => {
   const safeEnvKey = (typeof process !== 'undefined' && process.env && process.env.API_KEY) ? process.env.API_KEY : '';
 
   const isVideoMode = mainCategory === 'video';
-  const isProxyMode = mainCategory === 'proxy';
   const isAudioMode = mainCategory === 'audio';
   const isChatMode = mainCategory === 'chat';
   const isResourcesMode = mainCategory === 'resources';
   
-  // Determine if we should show the full-width view (like Chat, Proxy, Resources)
-  const isFullWidthMode = isChatMode || isProxyMode || isResourcesMode;
+  // Determine if we should show the full-width view (like Chat, Resources)
+  const isFullWidthMode = isChatMode || isResourcesMode;
 
   const handleSaveShortcut = () => {
     const appUrl = "https://" + APP_CONFIG.DESKTOP_SAVE_URL;
@@ -1463,7 +1461,7 @@ const App = () => {
 
   // ... (useEffects for models remain same) ...
   useEffect(() => {
-    if (!isVideoMode && !isProxyMode && !isAudioMode && !isChatMode && !isResourcesMode) {
+    if (!isVideoMode && !isAudioMode && !isChatMode && !isResourcesMode) {
       const model = MODELS.find(m => m.id === selectedModel);
       if (model) {
         if (!model.supportedAspectRatios.includes(aspectRatio)) setAspectRatio(model.supportedAspectRatios[0]);
@@ -1546,8 +1544,8 @@ const App = () => {
               });
     });
 
-    const savedLibrary = localStorage.getItem('viva_library_prompts');
-    const savedCategories = localStorage.getItem('viva_library_categories');
+  const savedLibrary = localStorage.getItem('nanmeng_library_prompts');
+  const savedCategories = localStorage.getItem('nanmeng_library_categories');
     
     let loadedPrompts: SavedPrompt[] = [];
     let loadedCategories: string[] = [];
@@ -1576,7 +1574,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const saved = localStorage.getItem('viva_config');
+    const saved = localStorage.getItem('nanmeng_config');
     
     if (saved) {
       try {
@@ -1597,7 +1595,7 @@ const App = () => {
     const normalized = { ...tempConfig };
     setConfig(normalized);
     setTempConfig(normalized);
-    localStorage.setItem('viva_config', JSON.stringify(normalized));
+    localStorage.setItem('nanmeng_config', JSON.stringify(normalized));
     setActiveModal(null);
     setError(null);
   };
@@ -1978,7 +1976,7 @@ const App = () => {
 
             if (selectedVideoModel === 'seedance-2.0') {
                 if (currentTotalDuration + duration > 15) {
-                    setError(`音频总时长超过 15 秒`);
+                    setError(`音频总时长��过 15 秒`);
                     break;
                 }
                 currentTotalDuration += duration;
@@ -2223,12 +2221,12 @@ RoleName必须严格对应用户输入中的角色名。`;
     
     const updated = [newPrompt, ...libraryPrompts];
     setLibraryPrompts(updated);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(updated));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(updated));
 
     if (!categories.includes(cat)) {
         const newCats = [...categories, cat].sort();
         setCategories(newCats);
-        localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+        localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     }
     // setSelectedCategory(cat);
     setActiveModal(null);
@@ -2241,7 +2239,7 @@ RoleName必须严格对应用户输入中的角色名。`;
     e.stopPropagation();
     const updated = libraryPrompts.filter(p => p.id !== id);
     setLibraryPrompts(updated);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(updated));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(updated));
   };
 
   const usePromptFromLibrary = (text: string) => {
@@ -2272,7 +2270,7 @@ RoleName必须严格对应用户输入中的角色名。`;
     
     const updated = libraryPrompts.map(p => p.id === id ? { ...p, text: editingLibraryText, name: editingLibraryName, category: editingLibraryCategory } : p);
     setLibraryPrompts(updated);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(updated));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(updated));
     setEditingLibraryId(null);
     
     let newCats = [...categories];
@@ -2286,7 +2284,7 @@ RoleName必须严格对应用户输入中的角色名。`;
 
     if (changed) {
         setCategories(newCats);
-        localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+        localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     }
   };
 
@@ -2313,7 +2311,7 @@ RoleName必须严格对应用户输入中的角色名。`;
     }
     const newCats = [...categories, clean].sort();
     setCategories(newCats);
-    localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+    localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     setSelectedCategory(clean);
     setIsAddingCategory(false);
     setNewCategoryName('');
@@ -2341,11 +2339,11 @@ RoleName必须严格对应用户输入中的角色名。`;
 
     const newPrompts = libraryPrompts.map(p => p.category === oldName ? {...p, category: newName} : p);
     setLibraryPrompts(newPrompts);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(newPrompts));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(newPrompts));
 
     const newCats = categories.map(c => c === oldName ? newName : c).sort();
     setCategories(newCats);
-    localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+    localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     
     if (selectedCategory === oldName) setSelectedCategory(newName);
     setRenamingCat(null);
@@ -2360,12 +2358,12 @@ RoleName必须严格对应用户输入中的角色名。`;
         }
         const newPrompts = libraryPrompts.filter(p => p.category !== catName);
         setLibraryPrompts(newPrompts);
-        localStorage.setItem('viva_library_prompts', JSON.stringify(newPrompts));
+        localStorage.setItem('nanmeng_library_prompts', JSON.stringify(newPrompts));
     }
     
     const newCats = categories.filter(c => c !== catName);
     setCategories(newCats);
-    localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+    localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     if (selectedCategory === catName) setSelectedCategory('全部');
   };
   */
@@ -2391,7 +2389,7 @@ RoleName必须严格对应用户输入中的角色名。`;
 
   const handleDragEnd = () => {
     setDraggedPromptIdx(null);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(libraryPrompts));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(libraryPrompts));
   };
   
   // Resource Drag Handlers
@@ -3116,7 +3114,7 @@ RoleName必须严格对应用户输入中的角色名。`;
 
             const link = document.createElement('a');
             link.href = downloadUrl;
-            link.download = `viva-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
+            link.download = `nanmeng-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -3145,7 +3143,7 @@ RoleName必须严格对应用户输入中的角色名。`;
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `viva-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
+        link.download = `nanmeng-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -3154,7 +3152,7 @@ RoleName必须严格对应用户输入中的角色名。`;
         console.error("Download failed, using fallback", error);
         const link = document.createElement('a');
         link.href = asset.url;
-        link.download = `viva-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
+        link.download = `nanmeng-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
         link.target = "_blank";
         document.body.appendChild(link);
         link.click();
@@ -3275,7 +3273,6 @@ RoleName必须严格对应用户输入中的角色名。`;
       <div className="w-full md:w-20 bg-white border-b-2 md:border-b-0 border-black flex md:flex-col justify-between md:justify-start items-center z-30 shrink-0 overflow-x-auto md:overflow-visible">
           
           <div className="hidden md:flex h-12 w-full items-center justify-end pr-3 border-b-2 border-black bg-brand-yellow shrink-0">
-             <Bot className="w-10 h-10 text-black" strokeWidth={2} />
           </div>
 
           <div className="flex md:flex-col items-center gap-2 md:gap-4 w-full overflow-x-auto md:overflow-visible no-scrollbar px-4 md:px-0 py-4 md:py-6 md:flex-1 md:border-r-2 border-black">
@@ -3285,7 +3282,6 @@ RoleName必须严格对应用户输入中的角色名。`;
                   { id: 'video', icon: Video, label: '视频', action: () => { setMainCategory('video'); resetInputState({ keepImages: true }); }, active: mainCategory === 'video' },
                   { id: 'audio', icon: Mic, label: '语音', action: () => { setMainCategory('audio'); resetInputState(); }, active: mainCategory === 'audio' },
                   { id: 'resources', icon: FolderOpen, label: '资源', action: () => { setMainCategory('resources'); resetInputState(); }, active: mainCategory === 'resources' },
-                  { id: 'proxy', icon: Shield, label: '代理', action: () => { setMainCategory('proxy'); resetInputState(); }, active: mainCategory === 'proxy' },
                   { id: 'case', icon: BookOpen, label: '案例', action: () => { window.open(APP_CONFIG.CASE_URL, '_blank'); }, active: false },
                   { id: 'save', icon: Save, label: '保存', action: handleSaveShortcut, active: false },
               ].map(item => (
@@ -3324,8 +3320,9 @@ RoleName必须严格对应用户输入中的角色名。`;
       {renderNavRail()}
 
       <div className={`bg-white flex flex-col z-20 brutalist-shadow transition-all duration-300 ${isFullWidthMode ? 'flex-1 w-full border-r-0' : (isSidebarOpen ? 'w-full md:w-[450px] border-r-2 border-black' : 'w-0 md:w-0 overflow-hidden border-r-0 opacity-0')}`}>
-        <header className="bg-brand-yellow pl-1 pr-5 border-b-2 border-black h-12 flex items-center justify-between transition-colors duration-300">
-          <div className="flex items-center gap-2">
+        <header className="bg-brand-yellow pl-2 pr-2 border-b-2 border-black h-12 flex items-center justify-between transition-colors duration-300">
+          <div className="flex items-center gap-2 flex-1">
+            <img src="/logo.png" alt="南梦AI 助手" className="w-8 h-8 object-contain shrink-0" />
             <h1 className="text-2xl font-bold italic tracking-tight text-black">{APP_CONFIG.APP_NAME}</h1>
           </div>
           {isFullWidthMode && (
@@ -3428,71 +3425,6 @@ RoleName必须严格对应用户输入中的角色名。`;
                              </a>
                          ))}
                     </div>
-                </div>
-            </div>
-        ) : mainCategory === 'proxy' ? (
-            <div className="flex-1 bg-[#F8FAFC] overflow-y-auto p-4 md:p-8 min-h-0">
-                <div className="max-w-5xl mx-auto space-y-8 animate-in slide-in-from-bottom-4 fade-in duration-500">
-                    
-                    {/* Header Hero */}
-                    <div className="bg-brand-blue border-2 border-black p-8 md:p-12 brutalist-shadow text-white relative overflow-hidden group">
-                        <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-black/10 skew-x-[-20deg] translate-x-1/2 group-hover:translate-x-1/3 transition-transform duration-700"></div>
-                        <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-                            <div className="space-y-4">
-                                <div className="inline-flex items-center gap-2 bg-white text-brand-blue border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider">
-                                    <Shield className="w-4 h-4 fill-current" />
-                                    Partner Program
-                                </div>
-                                <h2 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter leading-[0.9]">
-                                    代理合作<br/><span className="text-brand-yellow text-stroke-black">Cooperation</span>
-                                </h2>
-                            </div>
-                            <div className="bg-black/20 p-4 border border-white/30 backdrop-blur-sm max-w-sm">
-                                <p className="text-sm font-medium leading-relaxed">
-                                    开启您的 AI 创业之旅。零门槛，高回报。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Features Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="col-span-1 md:col-span-2 bg-black text-white p-4 border-2 border-black mb-4">
-                            <h3 className="text-xl font-bold uppercase italic tracking-wider flex items-center gap-2">
-                                <Zap className="w-6 h-6 text-brand-yellow fill-current" />
-                                核心优势 / Core Advantages
-                            </h3>
-                        </div>
-                        {[
-                            "提供超低的成本使用价，自用省米，运营赚米",
-                            "部署搭建同本AI大模型API主站一样的聚合API平台",
-                            "部署搭建同本AI助手一样的AI应用平台",
-                            "无需服务器、无需后续管理、只需提供一个域名",
-                            "最快一天部署上线，代理费达标后可全额返还",
-                            "2026弯道超车的机会，望君把握"
-                        ].map((text, i) => (
-                            <div key={i} className="group bg-white border-2 border-black p-5 transition-all duration-300 flex gap-4 items-start hover:-translate-y-1">
-                                <span className="shrink-0 w-8 h-8 flex items-center justify-center bg-brand-yellow border border-black font-black text-lg">
-                                    {i + 1}
-                                </span>
-                                <p className="font-bold text-sm md:text-base text-slate-800 pt-1">{text}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* CTA Section */}
-                    <a href={APP_CONFIG.AGENT_JOIN_URL} target="_blank" className="block group relative">
-                        <div className="relative bg-white border-2 border-black p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover:-translate-y-1 transition-transform cursor-pointer">
-                            <div className="space-y-2">
-                                <h3 className="text-2xl font-black uppercase italic">立即加入代理计划</h3>
-                                <p className="text-slate-600 font-medium">查看详细招募文档，获取更多权益详情</p>
-                            </div>
-                            <div className="w-16 h-16 bg-brand-green border-2 border-black flex items-center justify-center rounded-full group-hover:rotate-45 transition-transform duration-300">
-                                <ExternalLink className="w-8 h-8 text-black" />
-                            </div>
-                        </div>
-                    </a>
-
                 </div>
             </div>
         ) : (
@@ -3625,7 +3557,7 @@ RoleName必须严格对应用户输入中的角色名。`;
                                         <span className="font-bold text-brand-red">注意：</span>
                                         <ul className="list-disc pl-4 mt-1 space-y-0.5">
                                             <li>人物图：全身/半身，占比&gt;5%，避免遮挡。</li>
-                                            <li>视频：写实风格，单人，动作清晰，无镜头切换。</li>
+                                            <li>视频：写实风格，单��，动作清晰，无镜头切换。</li>
                                             <li>生成时长限制：人物朝向跟随视频(≤30s)，人物跟随图片(≤10s)。</li>
                                         </ul>
                                     </div>
@@ -3805,7 +3737,7 @@ RoleName必须严格对应用户输入中的角色名。`;
           </section>
           )}
 
-          {!isChatMode && !isProxyMode && !isResourcesMode && (
+          {!isChatMode && !isResourcesMode && (
           <section className="space-y-3">
              <SectionLabel 
                 text={isAudioMode ? "语音配置 / Voice Config" : "生成配置 / Generation Config"} 
@@ -4198,7 +4130,7 @@ RoleName必须严格对应用户输入中的角色名。`;
           )}
 
           <div className="space-y-3">
-            {!isChatMode && !isProxyMode && !isResourcesMode && (
+            {!isChatMode && !isResourcesMode && (
               <>
                 <button onClick={() => executeGeneration()} className="w-full py-3 bg-brand-red text-white text-xl font-normal border border-black brutalist-shadow hover:translate-y-1.5 hover:shadow-none transition-all uppercase tracking-tighter">
                   开始创作/Start Creating
@@ -4268,7 +4200,7 @@ RoleName必须严格对应用户输入中的角色名。`;
                         <button 
                             onClick={() => setShowAnnouncement(false)} 
                             className="absolute right-2 z-10 text-[#DC2626] hover:text-[#991B1B] bg-[#FEF2F2] pl-2"
-                            title="关闭公告"
+                            title="关��公告"
                         >
                             <X className="w-4 h-4" />
                         </button>
@@ -4419,7 +4351,7 @@ RoleName必须严格对应用户输入中的角色名。`;
                     <a href={`${tempConfig.baseUrl.replace(/\/$/, '')}/console/token`} target="_blank" className="text-lg font-bold uppercase italic flex items-center gap-2 hover:underline decoration-2 underline-offset-4">
                         API令牌获取地址 <ExternalLink className="w-5 h-5"/>
                     </a>
-                    <a href="https://my.feishu.cn/wiki/EPP6wHZEVi1Wi4kZac5cGWDTnx3?from=from_copylink" target="_blank" className="text-lg font-bold uppercase italic flex items-center gap-2 hover:underline decoration-2 underline-offset-4 text-brand-blue hover:text-blue-700 transition-colors">
+                    <a href="https://nanmengai.feishu.cn/wiki/K0Jtw1rpai1qU7kBRzrcJYzSn2d" target="_blank" className="text-lg font-bold uppercase italic flex items-center gap-2 hover:underline decoration-2 underline-offset-4 text-brand-blue hover:text-blue-700 transition-colors">
                         令牌设置教程-必看 <BookOpen className="w-5 h-5"/>
                     </a>
                 </div>
@@ -4480,8 +4412,6 @@ RoleName必须严格对应用户输入中的角色名。`;
           </div>
         </div>
       )}
-      
-      {/* ... remaining modals kept identical ... */}
       {activeModal === 'links' && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
           <div className="w-[500px] bg-white border-2 border-black brutalist-shadow animate-in zoom-in-95 relative">
@@ -4504,24 +4434,6 @@ RoleName必须严格对应用户输入中的角色名。`;
                       </div>
                       <p className="text-[10px] font-normal text-slate-400 uppercase italic">Click text to copy / Long press</p>
                   </div>
-               </div>
-
-               <div className="w-full h-0.5 bg-slate-100 border-t border-dashed border-slate-300"></div>
-
-               <div className="space-y-4 text-center">
-                  <div className="space-y-1">
-                      <h4 className="font-bold text-lg uppercase italic flex items-center justify-center gap-2">
-                          <span className="w-2 h-2 bg-brand-green rounded-full border border-black"></span>
-                          招募优质API代理
-                      </h4>
-                      <p className="text-xs font-bold text-slate-500 italic px-4 leading-relaxed">
-                          名额有限，欢迎想通过AI创业的伙伴加入。
-                      </p>
-                  </div>
-
-                  <a href={APP_CONFIG.SUPPORT_DETAIL_URL} target="_blank" className="flex items-center justify-center w-full py-4 bg-brand-red text-white border-2 border-transparent outline outline-2 outline-black font-bold text-lg uppercase hover:bg-black hover:translate-y-1 hover:shadow-none brutalist-shadow transition-all italic gap-2 group">
-                      查看更多详情 <ExternalLink className="w-5 h-5 group-hover:scale-110 transition-transform"/>
-                  </a>
                </div>
             </div>
           </div>
@@ -4654,7 +4566,7 @@ RoleName必须严格对应用户输入中的角色名。`;
                                       </div>
                                       <textarea value={editingLibraryText} onChange={e => setEditingLibraryText(e.target.value)} className="w-full h-24 text-xs border border-black p-2 resize-none outline-none focus:bg-white" placeholder="提示词..." />
                                       <div className="flex items-center gap-2 justify-end">
-                                          <button onClick={handleCancelLibraryEdit} className="px-3 py-1 bg-white border border-black text-xs font-normal hover:bg-slate-100">取消</button>
+                                          <button onClick={handleCancelLibraryEdit} className="px-3 py-1 bg-white border border-black text-xs font-normal hover:bg-slate-100">���消</button>
                                           <button onClick={(e) => handleSaveLibraryEdit(p.id, e)} className="px-4 py-1 bg-brand-green border border-black text-xs font-normal hover:translate-y-0.5 hover:shadow-none brutalist-shadow-sm transition-all">保存</button>
                                       </div>
                                     </div>

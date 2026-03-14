@@ -1,204 +1,301 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>ViVa AI助手</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                yellow: '#F7CE00',
-                red: '#E5312F',
-                black: '#000000',
-                purple: '#A855F7',
-                green: '#4ADE80',
-                cream: '#FEFCE8',
-                blue: '#3B82F6'
-              },
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>南梦AI 助手 - 一站式 AI 图像、视频、音频与对话平台</title>
+  <meta name="description" content="南梦AI 助手是集 AI 绘图、AI 视频生成、AI 音频创作、AI 对话于一体的智能平台，支持 Midjourney、Stable Diffusion、GPT-4o、Claude 等主流大模型，帮助您轻松完成创作与工作。">
+  <meta name="keywords" content="南梦AI,AI助手,AI绘图,AI视频,AI音频,AI对话,Midjourney,Stable Diffusion,GPT-4o,Claude,DALL-E,大模型,人工智能">
+  <meta name="author" content="南梦AI">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.nanmengai.cn/">
+
+  <!-- Open Graph / 社交媒体分享 -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.nanmengai.cn/">
+  <meta property="og:title" content="南梦AI 助手 - 一站式 AI 图像、视频、音频与对话平台">
+  <meta property="og:description" content="南梦AI 助手是集 AI 绘图、AI 视频生成、AI 音频创作、AI 对话于一体的智能平台，支持主流大模型，帮助您轻松完成创作与工作。">
+  <meta property="og:image" content="https://www.nanmengai.cn/logo.png">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="南梦AI 助手">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="南梦AI 助手 - 一站式 AI 图像、视频、音频与对话平台">
+  <meta name="twitter:description" content="南梦AI 助手是集 AI 绘图、AI 视频生成、AI 音频创作、AI 对话于一体的智能平台，支持主流大模型。">
+  <meta name="twitter:image" content="https://www.nanmengai.cn/logo.png">
+
+  <!-- 移动端主题色 -->
+  <meta name="theme-color" content="#3B82F6">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="南梦AI 助手">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "南梦AI 助手",
+    "url": "https://www.nanmengai.cn/",
+    "description": "集 AI 绘图、AI 视频生成、AI 音频创作、AI 对话于一体的智能平台，支持主流大模型。",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "zh-CN",
+    "image": "https://www.nanmengai.cn/logo.png",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CNY"
+    }
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#F7CE00',
+              red: '#E5312F',
+              black: '#000000',
+              purple: '#A855F7',
+              green: '#4ADE80',
+              cream: '#FEFCE8',
+              blue: '#3B82F6'
             },
-            animation: {
-              'spin-slow': 'spin 4s linear infinite',
-              'brutalist-pulse': 'brutalist-pulse 1.5s ease-in-out infinite',
-              'marquee': 'marquee 20s linear infinite',
+          },
+          animation: {
+            'spin-slow': 'spin 4s linear infinite',
+            'brutalist-pulse': 'brutalist-pulse 1.5s ease-in-out infinite',
+            'marquee': 'marquee 20s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(100%)' },
+              '100%': { transform: 'translateX(-100%)' }
             },
-            keyframes: {
-              marquee: {
-                '0%': { transform: 'translateX(100%)' },
-                '100%': { transform: 'translateX(-100%)' }
+            'brutalist-pulse': {
+              '0%, 100%': {
+                transform: 'scale(1)',
+                boxShadow: 'none',
+                backgroundColor: '#ffffff'
               },
-              'brutalist-pulse': {
-                '0%, 100%': { 
-                  transform: 'scale(1)',
-                  boxShadow: 'none',
-                  backgroundColor: '#ffffff'
-                },
-                '50%': { 
-                  transform: 'scale(1.1)',
-                  boxShadow: '0px 0px 20px 8px rgba(229, 49, 47, 0.4)',
-                  backgroundColor: '#fff1f2'
-                },
-              }
+              '50%': {
+                transform: 'scale(1.1)',
+                boxShadow: '0px 0px 20px 8px rgba(229, 49, 47, 0.4)',
+                backgroundColor: '#fff1f2'
+              },
             }
           }
         }
       }
-    </script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
-      body {
-        background-color: #F8FAFC;
-        background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
-        background-size: 24px 24px;
-        font-family: 'Microsoft YaHei', '微软雅黑', 'Arial', sans-serif;
-      }
+    body {
+      background-color: #F8FAFC;
+      background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+      background-size: 24px 24px;
+      font-family: 'Microsoft YaHei', '微软雅黑', 'Arial', sans-serif;
+    }
 
-      .brutalist-border {
-        border: 2px solid black;
-      }
+    .brutalist-border {
+      border: 2px solid black;
+    }
 
-      .brutalist-shadow {
-        box-shadow: none;
-      }
+    .brutalist-shadow {
+      box-shadow: none;
+    }
 
-      .brutalist-shadow-sm {
-        box-shadow: none;
-      }
+    .brutalist-shadow-sm {
+      box-shadow: none;
+    }
 
-      .comic-title {
-        font-family: 'Arial', sans-serif;
-        text-transform: uppercase;
-        font-style: normal;
-        letter-spacing: -0.02em;
-      }
+    .comic-title {
+      font-family: 'Arial', sans-serif;
+      text-transform: uppercase;
+      font-style: normal;
+      letter-spacing: -0.02em;
+    }
 
-      .solid-box-green {
-        border: 2px solid #4ADE80;
-      }
+    .solid-box-green {
+      border: 2px solid #4ADE80;
+    }
 
-      .solid-box-purple {
-        border: 2px solid #A855F7;
-      }
+    .solid-box-purple {
+      border: 2px solid #A855F7;
+    }
 
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #F1F5F9;
-        border-left: 1px solid black;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: black;
-        border: 1px solid white;
-      }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
 
-      .no-scrollbar::-webkit-scrollbar {
-          display: none;
-      }
-      
-      .brutalist-input:focus {
-        background-color: #FEFCE8;
-        border-color: #000000;
-      }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+      border-left: 1px solid black;
+    }
 
-      /* Ensure clear style baseline */
-      * {
-        font-style: normal !important;
-      }
+    ::-webkit-scrollbar-thumb {
+      background: black;
+      border: 1px solid white;
+    }
 
-      /* Chat Input Scrollbar */
-      .chat-input-scrollbar::-webkit-scrollbar {
-        width: 4px;
-      }
-      .chat-input-scrollbar::-webkit-scrollbar-track {
-        background: transparent;
-        border: none;
-      }
-      .chat-input-scrollbar::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 2px;
-        border: none;
-      }
-      .chat-input-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-      }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
 
-      /* Markdown Styles */
-      .markdown-body {
-        font-family: inherit;
-        line-height: 1.6;
-        color: inherit;
-      }
-      .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-        line-height: 1.25;
-        color: #000;
-      }
-      .markdown-body h1 { font-size: 1.5rem; border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
-      .markdown-body h2 { font-size: 1.25rem; border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
-      .markdown-body h3 { font-size: 1.125rem; }
-      .markdown-body p { margin-top: 0; margin-bottom: 1rem; }
-      .markdown-body ul, .markdown-body ol { padding-left: 2em; margin-top: 0; margin-bottom: 1rem; }
-      .markdown-body li { margin-top: 0.25em; }
-      .markdown-body code {
-        padding: 0.2em 0.4em;
-        margin: 0;
-        font-size: 85%;
-        background-color: rgba(175, 184, 193, 0.2);
-        border-radius: 6px;
-        font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-      }
-      .markdown-body pre {
-        padding: 16px;
-        overflow: auto;
-        font-size: 85%;
-        line-height: 1.45;
-        background-color: #f6f8fa;
-        border-radius: 6px;
-        margin-bottom: 1rem;
-      }
-      .markdown-body pre code {
-        padding: 0;
-        margin: 0;
-        background-color: transparent;
-        border: 0;
-        font-size: 100%;
-        word-break: normal;
-        white-space: pre;
-      }
-      .markdown-body blockquote {
-        padding: 0 1em;
-        color: #6a737d;
-        border-left: 0.25em solid #dfe2e5;
-        margin: 0 0 1rem 0;
-      }
-      .markdown-body table {
-        border-spacing: 0;
-        border-collapse: collapse;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        width: 100%;
-      }
-      .markdown-body table th, .markdown-body table td {
-        padding: 6px 13px;
-        border: 1px solid #dfe2e5;
-      }
-      .markdown-body table tr {
-        background-color: #fff;
-        border-top: 1px solid #c6cbd1;
-      }
-      .markdown-body table tr:nth-child(2n) {
-        background-color: #f6f8fa;
-      }
-    </style>
-<script type="importmap">
+    .brutalist-input:focus {
+      background-color: #FEFCE8;
+      border-color: #000000;
+    }
+
+    /* Ensure clear style baseline */
+    * {
+      font-style: normal !important;
+    }
+
+    /* Chat Input Scrollbar */
+    .chat-input-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .chat-input-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+      border: none;
+    }
+
+    .chat-input-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 2px;
+      border: none;
+    }
+
+    .chat-input-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Markdown Styles */
+    .markdown-body {
+      font-family: inherit;
+      line-height: 1.6;
+      color: inherit;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4 {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #000;
+    }
+
+    .markdown-body h1 {
+      font-size: 1.5rem;
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+
+    .markdown-body h2 {
+      font-size: 1.25rem;
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3em;
+    }
+
+    .markdown-body h3 {
+      font-size: 1.125rem;
+    }
+
+    .markdown-body p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .markdown-body ul,
+    .markdown-body ol {
+      padding-left: 2em;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .markdown-body li {
+      margin-top: 0.25em;
+    }
+
+    .markdown-body code {
+      padding: 0.2em 0.4em;
+      margin: 0;
+      font-size: 85%;
+      background-color: rgba(175, 184, 193, 0.2);
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    }
+
+    .markdown-body pre {
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      background-color: #f6f8fa;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .markdown-body pre code {
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      border: 0;
+      font-size: 100%;
+      word-break: normal;
+      white-space: pre;
+    }
+
+    .markdown-body blockquote {
+      padding: 0 1em;
+      color: #6a737d;
+      border-left: 0.25em solid #dfe2e5;
+      margin: 0 0 1rem 0;
+    }
+
+    .markdown-body table {
+      border-spacing: 0;
+      border-collapse: collapse;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    .markdown-body table th,
+    .markdown-body table td {
+      padding: 6px 13px;
+      border: 1px solid #dfe2e5;
+    }
+
+    .markdown-body table tr {
+      background-color: #fff;
+      border-top: 1px solid #c6cbd1;
+    }
+
+    .markdown-body table tr:nth-child(2n) {
+      background-color: #f6f8fa;
+    }
+  </style>
+  <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@^19.2.3",
@@ -211,8 +308,10 @@
 }
 </script>
 </head>
+
 <body class="text-black">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

@@ -2,7 +2,7 @@
 // 代理商配置文件：请仅修改此文件中的变量值，无需改动主代码
 
 // 1. 应用名称：代理替换为自己的应用名称（同步生效于HTML文件界面名称）
-export const APP_NAME = "AI 助手";
+export const APP_NAME = "南梦AI 助手";
 
 // 2. 基础地址：代理替换为专属域名
 export const BASE_URL = "https://www.vivaapi.cn";

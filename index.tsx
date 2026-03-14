@@ -818,7 +818,7 @@ ${input.replace("@图片反推", "").trim()}`;
 
 二、输出格式（固定结构，可直接复制，纯文本格式）
 画面风格：[完整提取所有关键信息：主体内容、细节纹理、材质质感、构图方式、光影类型、色彩体系、背景元素、风格标签，适配 AI 生视频提示词使用]
-音频风格��[精���概���视���核心音频风格，适配 AI 生视频提示词使用]
+音频��格��[精���概���视���核心音频风格，适配 AI 生视频提示词使用]
 视频拉片笔记:
 镜号 | 景别 / 角度 | 运动 | 画面内容 | 音频 | 时长 (秒)
 
@@ -1053,7 +1053,7 @@ ${input.replace("@视频反推", "").trim()}`;
                                 <button
                                    onClick={() => setIsThinking(!isThinking)}
                                    className={`rounded-full p-2 transition-colors ${isThinking ? 'bg-indigo-100 text-indigo-600' : 'text-gray-600 hover:bg-gray-200'}`}
-                                   title={isThinking ? "关闭深度思考" : "开启深度思考"}
+                                   title={isThinking ? "关闭深度思考" : "��启深度思考"}
                                 >
                                    <Brain className="w-5 h-5" />
                                 </button>
@@ -3320,7 +3320,7 @@ RoleName必须严格对应用户输入中的角色名。`;
       {renderNavRail()}
 
       <div className={`bg-white flex flex-col z-20 brutalist-shadow transition-all duration-300 ${isFullWidthMode ? 'flex-1 w-full border-r-0' : (isSidebarOpen ? 'w-full md:w-[450px] border-r-2 border-black' : 'w-0 md:w-0 overflow-hidden border-r-0 opacity-0')}`}>
-        <header className="bg-brand-yellow pl-1 pr-5 border-b-2 border-black h-12 flex items-center justify-between transition-colors duration-300">
+        <header className="bg-brand-yellow pl-4 pr-5 border-b-2 border-black h-12 flex items-center justify-between transition-colors duration-300">
           <div className="flex items-center gap-2">
             <img src="/logo.png" alt="南梦AI 助手" className="w-8 h-8 object-contain" />
             <h1 className="text-2xl font-bold italic tracking-tight text-black">{APP_CONFIG.APP_NAME}</h1>

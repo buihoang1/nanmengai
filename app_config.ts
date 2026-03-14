@@ -14,7 +14,7 @@ export const PRICE_RATIO = 0.7;
 export const WECHAT_SERVICE = "Nanmengaix";
 
 // 5. 客服查询更多详情链接：代理替换为专属链接
-export const SUPPORT_DETAIL_URL = "https://www.xxxx.cn/support";
+export const SUPPORT_DETAIL_URL = "https://nanmengai.feishu.cn/wiki/B7MmwXnTTiZStAkdtlUc2UTCnmd";
 
 // 6. 代理界面立即加入代理计划链接：代理替换为专属链接
 export const AGENT_JOIN_URL = "https://www.xxxx.cn/join";
@@ -23,4 +23,4 @@ export const AGENT_JOIN_URL = "https://www.xxxx.cn/join";
 export const CASE_URL = "https://nanmengai.feishu.cn/wiki/B7MmwXnTTiZStAkdtlUc2UTCnmd";
 
 // 8. 保存到桌面的链接：代理替换为部署到Vercel的自定义域名
-export const DESKTOP_SAVE_URL = "p.xxxx.cn";
+export const DESKTOP_SAVE_URL = "picture.nanmengai.cn";

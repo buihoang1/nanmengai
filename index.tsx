@@ -813,12 +813,12 @@ ${input.replace("@图片反推", "").trim()}`;
 画面信息：人物（动作、服装、表情）、物体（颜色、材质）、光线类型、场景细节、艺术风格
 音频信息：旁白（原话完整转录）、旁白语气、BGM 风格、环境音、特效音
 时长：估算每镜头持续时间，单位为秒，保留 1 位小数
-内容类型判定：�������识别视频核心类型（可标注 1-2 个）
+内容类型判定：���������识别视频核心类型（可标注 1-2 个）
 视频类目判定：自动识别视频类目
 
 二、输出格式（固定结构，可直接复制，纯文本格式）
 画面风格：[完整提取所有关键信息：主体内容、细节纹理、材质质感、构图方式、光影类型、色彩体系、背景元素、风格标签，适配 AI 生视频提示词使用]
-音频风格：[精���概���视���核心音频风格，适配 AI 生视频提示词使用]
+音频风格��[精���概���视���核心音频风格，适配 AI 生视频提示词使用]
 视频拉片笔记:
 镜号 | 景别 / 角度 | 运动 | 画面内容 | 音频 | 时长 (秒)
 
@@ -3273,7 +3273,6 @@ RoleName必须严格对应用户输入中的角色名。`;
       <div className="w-full md:w-20 bg-white border-b-2 md:border-b-0 border-black flex md:flex-col justify-between md:justify-start items-center z-30 shrink-0 overflow-x-auto md:overflow-visible">
           
           <div className="hidden md:flex h-12 w-full items-center justify-end pr-3 border-b-2 border-black bg-brand-yellow shrink-0">
-             <Bot className="w-10 h-10 text-black" strokeWidth={2} />
           </div>
 
           <div className="flex md:flex-col items-center gap-2 md:gap-4 w-full overflow-x-auto md:overflow-visible no-scrollbar px-4 md:px-0 py-4 md:py-6 md:flex-1 md:border-r-2 border-black">

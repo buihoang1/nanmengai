@@ -11,7 +11,7 @@ export const BASE_URL = "https://www.nanmengai.cn";
 export const PRICE_RATIO = 0.7;
 
 // 4. 微信客服：代理替换为自己的微信客服号
-export const WECHAT_SERVICE = "wx123456789";
+export const WECHAT_SERVICE = "Nanmengaix";
 
 // 5. 客服查询更多详情链接：代理替换为专属链接
 export const SUPPORT_DETAIL_URL = "https://www.xxxx.cn/support";

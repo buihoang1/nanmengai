@@ -1,6 +1,5 @@
 /**
- * 应用配置文件 - 代理用户只需修改此文件中的内容
- * Application Configuration File - Agents only need to modify this file
+ * 应用配置文件
  */
 
 export const APP_CONFIG = {
@@ -13,18 +12,18 @@ export const APP_CONFIG = {
   // 3. 价格倍率
   PRICE_RATIO: 1,
 
-  // 4. 微信客服（WECHAT_SERVICE）：默认值="wx123456789"，代理替换为自己的微信客服号
+  // 4. 微信客服（WECHAT_SERVICE）
   WECHAT_SERVICE: "Nanmengaix",
 
   // 5. 客服查询更多详情链接（SUPPORT_DETAIL_URL）：默认值="https://www.xxxx.cn/support"，代理替换为专属链接
   SUPPORT_DETAIL_URL: "https://nanmengai.feishu.cn/wiki/B7MmwXnTTiZStAkdtlUc2UTCnmd",
 
-  // 6. 代理界面立即加入代理计划链接（AGENT_JOIN_URL）：默认值="https://www.xxxx.cn/join"，代理替换为专属链接
+  // 6. 代理界面立即加入代理计划链接（AGENT_JOIN_URL）
   AGENT_JOIN_URL: "https://nanmengai.feishu.cn/wiki/B7MmwXnTTiZStAkdtlUc2UTCnmd",
 
   // 7. 案例链接（CASE_URL）：默认值="https://www.xxxx.cn/case"，代理替换为专属链接
   CASE_URL: "https://nanmengai.feishu.cn/wiki/B7MmwXnTTiZStAkdtlUc2UTCnmd",
 
-  // 8. 保存到桌面的链接（DESKTOP_SAVE_URL）：默认值="p.xxxx.cn"，代理替换为部署到Vercel的自定义域名
+  // 8. 保存到桌面的链接（DESKTOP_SAVE_URL）：
   DESKTOP_SAVE_URL: "picture.nanmengai.cn",
 };

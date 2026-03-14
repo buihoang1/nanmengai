@@ -483,7 +483,7 @@ const findImageUrlInObject = (obj: any): string | null => {
 };
 
 // --- IndexedDB ---
-const DB_NAME = 'viva_ai_db';
+const DB_NAME = 'nanmeng_ai_db';
 const STORE_NAME = 'assets';
 const DB_VERSION = 4;
 
@@ -818,7 +818,7 @@ ${input.replace("@图片反推", "").trim()}`;
 
 二、输出格式（固定结构，可直接复制，纯文本格式）
 画面风格：[完整提取所有关键信息：主体内容、细节纹理、材质质感、构图方式、光影类型、色彩体系、背景元素、风格标签，适配 AI 生视频提示词使用]
-音频�����格��[精���概���视���核心音频风格，适配 AI 生视频提示词使用]
+音频�������格��[精���概���视���核心音频风格，适配 AI 生视频提示词使用]
 视频拉片笔记:
 镜号 | 景别 / 角度 | 运动 | 画面内容 | 音频 | 时长 (秒)
 
@@ -1544,8 +1544,8 @@ const App = () => {
               });
     });
 
-    const savedLibrary = localStorage.getItem('viva_library_prompts');
-    const savedCategories = localStorage.getItem('viva_library_categories');
+  const savedLibrary = localStorage.getItem('nanmeng_library_prompts');
+  const savedCategories = localStorage.getItem('nanmeng_library_categories');
     
     let loadedPrompts: SavedPrompt[] = [];
     let loadedCategories: string[] = [];
@@ -1574,7 +1574,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const saved = localStorage.getItem('viva_config');
+    const saved = localStorage.getItem('nanmeng_config');
     
     if (saved) {
       try {
@@ -1595,7 +1595,7 @@ const App = () => {
     const normalized = { ...tempConfig };
     setConfig(normalized);
     setTempConfig(normalized);
-    localStorage.setItem('viva_config', JSON.stringify(normalized));
+    localStorage.setItem('nanmeng_config', JSON.stringify(normalized));
     setActiveModal(null);
     setError(null);
   };
@@ -1976,7 +1976,7 @@ const App = () => {
 
             if (selectedVideoModel === 'seedance-2.0') {
                 if (currentTotalDuration + duration > 15) {
-                    setError(`音频总时长超过 15 秒`);
+                    setError(`音频总时长��过 15 秒`);
                     break;
                 }
                 currentTotalDuration += duration;
@@ -2221,12 +2221,12 @@ RoleName必须严格对应用户输入中的角色名。`;
     
     const updated = [newPrompt, ...libraryPrompts];
     setLibraryPrompts(updated);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(updated));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(updated));
 
     if (!categories.includes(cat)) {
         const newCats = [...categories, cat].sort();
         setCategories(newCats);
-        localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+        localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     }
     // setSelectedCategory(cat);
     setActiveModal(null);
@@ -2239,7 +2239,7 @@ RoleName必须严格对应用户输入中的角色名。`;
     e.stopPropagation();
     const updated = libraryPrompts.filter(p => p.id !== id);
     setLibraryPrompts(updated);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(updated));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(updated));
   };
 
   const usePromptFromLibrary = (text: string) => {
@@ -2270,7 +2270,7 @@ RoleName必须严格对应用户输入中的角色名。`;
     
     const updated = libraryPrompts.map(p => p.id === id ? { ...p, text: editingLibraryText, name: editingLibraryName, category: editingLibraryCategory } : p);
     setLibraryPrompts(updated);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(updated));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(updated));
     setEditingLibraryId(null);
     
     let newCats = [...categories];
@@ -2284,7 +2284,7 @@ RoleName必须严格对应用户输入中的角色名。`;
 
     if (changed) {
         setCategories(newCats);
-        localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+        localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     }
   };
 
@@ -2311,7 +2311,7 @@ RoleName必须严格对应用户输入中的角色名。`;
     }
     const newCats = [...categories, clean].sort();
     setCategories(newCats);
-    localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+    localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     setSelectedCategory(clean);
     setIsAddingCategory(false);
     setNewCategoryName('');
@@ -2339,11 +2339,11 @@ RoleName必须严格对应用户输入中的角色名。`;
 
     const newPrompts = libraryPrompts.map(p => p.category === oldName ? {...p, category: newName} : p);
     setLibraryPrompts(newPrompts);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(newPrompts));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(newPrompts));
 
     const newCats = categories.map(c => c === oldName ? newName : c).sort();
     setCategories(newCats);
-    localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+    localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     
     if (selectedCategory === oldName) setSelectedCategory(newName);
     setRenamingCat(null);
@@ -2358,12 +2358,12 @@ RoleName必须严格对应用户输入中的角色名。`;
         }
         const newPrompts = libraryPrompts.filter(p => p.category !== catName);
         setLibraryPrompts(newPrompts);
-        localStorage.setItem('viva_library_prompts', JSON.stringify(newPrompts));
+        localStorage.setItem('nanmeng_library_prompts', JSON.stringify(newPrompts));
     }
     
     const newCats = categories.filter(c => c !== catName);
     setCategories(newCats);
-    localStorage.setItem('viva_library_categories', JSON.stringify(newCats));
+    localStorage.setItem('nanmeng_library_categories', JSON.stringify(newCats));
     if (selectedCategory === catName) setSelectedCategory('全部');
   };
   */
@@ -2389,7 +2389,7 @@ RoleName必须严格对应用户输入中的角色名。`;
 
   const handleDragEnd = () => {
     setDraggedPromptIdx(null);
-    localStorage.setItem('viva_library_prompts', JSON.stringify(libraryPrompts));
+    localStorage.setItem('nanmeng_library_prompts', JSON.stringify(libraryPrompts));
   };
   
   // Resource Drag Handlers
@@ -3114,7 +3114,7 @@ RoleName必须严格对应用户输入中的角色名。`;
 
             const link = document.createElement('a');
             link.href = downloadUrl;
-            link.download = `viva-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
+            link.download = `nanmeng-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -3143,7 +3143,7 @@ RoleName必须严格对应用户输入中的角色名。`;
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `viva-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
+        link.download = `nanmeng-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -3152,7 +3152,7 @@ RoleName必须严格对应用户输入中的角色名。`;
         console.error("Download failed, using fallback", error);
         const link = document.createElement('a');
         link.href = asset.url;
-        link.download = `viva-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
+        link.download = `nanmeng-${asset.id}.${asset.type === 'video' ? 'mp4' : asset.type === 'audio' ? 'wav' : 'png'}`;
         link.target = "_blank";
         document.body.appendChild(link);
         link.click();
